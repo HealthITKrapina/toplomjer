@@ -25,15 +25,32 @@
 </div>
 <div class="flex2">
 
-<div class="wrapper" style="font-weight:500; text-align:center;">
-  <img src="panda.png"  style="width:50%">
-  <p th:text = "'Bog ' + ${currUser.firstName} + ', ja sam Pando, tvoj digitalni pomoćnik!'" style="margin-top: 32px; ">
-  </p>
+  <div class="wrapper" style="font-weight:500; text-align:center;">
 
-  <button th:onclick="|window.location.href = '/form-1?id=${currUser.id}'|" type="button"  class="button-next" style="color:white;background:#60547C; width:100%">UNESI DNEVNO STANJE</button>
-  <button th:onclick="|window.location.href = '/records?id=${currUser.id}'|" type="button"  class="button-next" style="color:white;background:#FF2C4C; width:100%">PRETHODNI ZAPISI</button>
+    <table class="">
+      <thead>
+      <tr>
+        <th>Datum</th>
+        <th>Raspoloženje(1-5)</th>
+        <th>Razina boli(0-10)</th>
+        <th>Opis stanja</th>
 
-</div>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr th:each="record : ${recordList}">
+        <td th:text="${#dates.format(record.date, 'dd-MM-yy HH:mm')}"></td>
+        <td th:text="${record.happinessLevel}"></td>
+        <td th:text="${record.painLevel}"></td>
+        <td th:text="${record.text}"></td>
+      </tr>
+
+      </tbody>
+
+    </table>
+
   </div>
+</div>
 </body>
 </html>

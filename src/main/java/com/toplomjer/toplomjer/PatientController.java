@@ -144,6 +144,13 @@ public class PatientController {
         return "legenda.html";
     }
 
+    @GetMapping("records")
+    public String showRecords(Model model, HttpSession session, Long id) {
+        currUser = userRepository.findById(id).get();
+        model.addAttribute("currUser", currUser);
+        model.addAttribute("recordList", recordRepository.findByPatient(currUser));
+        return "records_patient_view.html";
+    }
 
 
 }
