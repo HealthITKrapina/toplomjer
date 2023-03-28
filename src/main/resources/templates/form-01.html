@@ -30,7 +30,8 @@
   <p th:text = "'Bog ' + ${currUser.firstName} + ', ja sam Pando, tvoj digitalni pomoćnik!'" style="margin-top: 32px; ">
   </p>
 
-  <button th:onclick="|window.location.href = '/form-1?id=${currUser.id}'|" type="button"  class="button-next">DALJE</button>
+  <button th:onclick="|window.location.href = '/form-1?id=${currUser.id}'|" type="button"  class="button-next" style="color:white;background:#60547C; width:100%">UNESI DNEVNO STANJE</button>
+  <button th:onclick="|window.location.href = '/form-1?id=${currUser.id}'|" type="button"  class="button-next" style="color:white;background:#FF2C4C; width:100%">PRETHODNI ZAPISI</button>
 
 </div>
   </div>
