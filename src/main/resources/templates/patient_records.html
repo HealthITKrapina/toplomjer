@@ -51,7 +51,7 @@
         padding-bottom: 0.2 rem;    /* Footer height */
         }
 
-        footer {
+      footer {
             font-size: 0.3 rem;
             font-family: sans-serif;
             position: fixed;
@@ -111,7 +111,7 @@
 
     <tbody>
     <tr th:each="record : ${recordList}">
-      <td th:text="${#dates.format(record.date, 'yyyy-MM-dd HH:mm')}"></td>
+      <td th:text="${#dates.format(record.date, 'HH:mm dd.MM.yyyy.')}"></td>
 
       <td th:text="${record.happinessLevel}"></td>
 
