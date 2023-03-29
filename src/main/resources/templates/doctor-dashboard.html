@@ -120,21 +120,21 @@
     <table id="patientTable" class="table table-hover">
         <thead class="table-secondary">
         <tr>
-            <th>rb.</th>
             <th>Ime</th>
             <th>Prezime</th>
             <th>Zapisi</th>
+            <th>Bol</th>
+            <th>Datum</th>
 
         </tr>
         </thead>
         <tbody>
         <tr th:each="currPatient : ${patientList}">
-            <td th:text="${currPatient.id}"></td>
             <td th:text="${currPatient.firstName}"></td>
             <td th:text="${currPatient.lastName}"></td>
             <td><a th:href="@{'/showRecords?id=' + ${currPatient.id}}">Pregled</a></td>
-
-
+            <td th:text="${record.painLevel}"></td>
+            <td th:text="${#dates.format(record.date, 'HH:mm dd.MM.yyyy.')}"></td>
         </tr>
         </tbody>
     </table>
