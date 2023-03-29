@@ -152,5 +152,12 @@ public class PatientController {
         return "records_patient_view.html";
     }
 
+    @GetMapping("text")
+    public String showText(Model model, HttpSession session, Long recordId) {
+        Record record = recordRepository.findById(recordId).get();
+        model.addAttribute("currUser", currUser);
+        model.addAttribute("record", record);
+        return "record_text.html";
+    }
 
 }

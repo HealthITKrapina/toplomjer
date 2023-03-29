@@ -392,6 +392,8 @@ div.checkbox_select .select_input
 
 
 .help-tip{
+border: 1px solid black;
+    border-radius: 0.375rem;
 	text-align: center;
 	border: 2px solid #444;
 	border-radius: 50%;
@@ -406,8 +408,8 @@ div.checkbox_select .select_input
 
 .help-tip:before{
     content:'?';
-    font-family: sans-serif;
     font-weight: normal;
+    font-family:sans-serif;
     color:#444;
 }
 
@@ -421,7 +423,6 @@ div.checkbox_select .select_input
 /* The tooltip */
 .help-tip p {
 	display: none;
-	font-family: sans-serif;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	text-align: center;
@@ -433,7 +434,7 @@ div.checkbox_select .select_input
 	left: 50%;
 	transform: translate(-40%, 5%);
 	border-radius: 3px;
-/* 	border: 1px solid #E0E0E0; */
+ 	border: 1px solid black;
 	box-shadow: 0 0px 20px 0 rgba(0,0,0,0.1);
 	color: #37393D;
 	font-size: 12px;
