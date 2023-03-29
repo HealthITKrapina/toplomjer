@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -147,8 +148,10 @@ public class PatientController {
     @GetMapping("records")
     public String showRecords(Model model, HttpSession session, Long id) {
         currUser = userRepository.findById(id).get();
+        List<Record> recordList = recordRepository.findByPatient(currUser);
+        Collections.reverse(recordList);
         model.addAttribute("currUser", currUser);
-        model.addAttribute("recordList", recordRepository.findByPatient(currUser));
+        model.addAttribute("recordList", recordList);
         return "records_patient_view.html";
     }
 
