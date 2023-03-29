@@ -47,14 +47,13 @@
     <div class="slider">
         <div class="thumb"><span></span></div>
         <div class="progress-bar"></div>
-        <form action="form-2">
+        <form action="form-2" id="form">
             <input type="range" name = "happinessLevel" min="0" value="50" max="100">
     </div>
 
-
-    <button type="submit" class="button-next" style="margin-top:40px">DALJE</button>
     </form>
 
+    <button type="submit" form = "form" class="button-next" style="margin-top:40px;color:white; background:#60547C; width:100%">NASTAVI</button>
 
 <script type="text/javascript">
             const body = document.querySelector("body");
@@ -95,5 +94,6 @@
                 }
             }
         </script>
+
 </body>
 </html>
