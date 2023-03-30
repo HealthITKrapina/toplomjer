@@ -24,6 +24,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    margin-bottom:32px;
     background: ghostwhite;
     padding: 20px;
     transition: all 0.3s ease;
