@@ -32,6 +32,7 @@ public class DoctorController {
         List<User> patientList = userRepository.findByPermissionLevel(0);
         model.addAttribute("currUser", currUser);
         model.addAttribute("patientList", patientList);
+        model.addAttribute("recordRepo", recordRepository);
         return "doctor-dashboard.html";
     }
 

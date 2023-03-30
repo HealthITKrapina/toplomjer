@@ -112,21 +112,19 @@ public class PatientController {
     }
     @GetMapping("/form-end")
     public String formEnd(Model model, String text, @RequestParam Map<String, String> allParams, HttpSession session) {
-        String newText = text  + "\n";
-        Record record = (Record) session.getAttribute("record");
-
-
-        newText += "\n\nSelektirano:\n";
+        String newText = "";
         if(allParams.get("\uD83D\uDC6A Podrška obitelji") != null)
-            newText += "[Podrška obitelji]\n";
+            newText += "[\uD83D\uDC6APodrška obitelji]\n";
         if(allParams.get("\uD83D\uDC69\u200D⚕️Podrška medicinskog tima") != null)
-            newText += "[Podrška medicinskog tima]\n";
+            newText += "[\uD83D\uDC69\u200D⚕Podrška medicinskog tima]\n";
         if(allParams.get("\uD83D\uDD6F️ Duhovna podrška") != null)
-            newText += "[Duhovna podrška]\n";
+            newText += "[\uD83D\uDD6FDuhovna podrška]\n";
         if(allParams.get("\uD83D\uDC69\uD83C\uDFFB\u200D⚕ Psihološka podrška") != null)
-            newText += "[Psihološka podrška]\n";
+            newText += "[\uD83D\uDC69\uD83C\uDFFB\u200D⚕Psihološka podrška]\n";
         if(allParams.get("\uD83D\uDC8A Lijek") != null)
-            newText += "[Lijek]\n";
+            newText += "\uD83D\uDC8A[Lijek]\n";
+        newText += text;
+        Record record = (Record) session.getAttribute("record");
         record.setText(newText);
 
         //Trenutno rjesenje set datea dok je app jos hostan na heroku serveru
