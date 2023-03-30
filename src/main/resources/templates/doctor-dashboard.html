@@ -79,22 +79,35 @@
     <table id="patientTable" class="table table-hover">
         <thead class="table-secondary">
         <tr>
-            <th>rb.</th>
             <th>Ime</th>
             <th>Prezime</th>
             <th>Zapisi</th>
-            <th>Uredi</th>
+            <th>Datum zadnjeg zapisa</th>
+            <th>Bol</th>
+
 
 
         </tr>
         </thead>
         <tbody>
         <tr th:each="currPatient : ${patientList}">
-            <td th:text="${currPatient.id}"></td>
             <td th:text="${currPatient.firstName}"></td>
             <td th:text="${currPatient.lastName}"></td>
-            <td><a th:href="@{'/showRecords?id=' + ${currPatient.id}}">Pregled</a></td>s
-            <td><a th:href="@{'/addNewPatient?id=' + ${currPatient.id}}">Uredi</a></td>
+            <td><a th:href="@{'/showRecords?id=' + ${currPatient.id}}">Pregled</a></td>
+            <td><a th:if="${recordRepo.findByPatient(currPatient).size != 0} " th:text="${#dates.format(recordRepo.findByPatient(currPatient).get(recordRepo.findByPatient(currPatient).size-1).date, 'HH:mm dd.MM.yy')}" style="font-weight:bold">Datum zadnjeg zapisa</a></td>
+            <div th:if="${recordRepo.findByPatient(currPatient).size != 0}" th:switch="${(recordRepo.findByPatient(currPatient).get(recordRepo.findByPatient(currPatient).size-1)).painLevel}">
+                <td th:case="'0'" style="background:gray;color:white; text-align:center">0</td>
+                <td th:case="'1'" style="background:green;color:white; text-align:center">1</td>
+                <td th:case="'2'" style="background:green;color:white; text-align:center">2</td>
+                <td th:case="'3'" style="background:green;color:white; text-align:center">3</td>
+                <td th:case="'4'" style="background:orange;color:white; text-align:center">4</td>
+                <td th:case="'5'" style="background:orange;color:white; text-align:center">5</td>
+                <td th:case="'6'" style="background:orange;color:white; text-align:center">6</td>
+                <td th:case="'7'" style="background:red;color:white; text-align:center">7</td>
+                <td th:case="'8'" style="background:red;color:white; text-align:center">8<</td>
+                <td th:case="'9'" style="background:red;color:white; text-align:center">9<</td>
+                <td th:case="'10'" style="background:red; color:white; text-align:center">10</td>
+            </div>
 
         </tr>
         </tbody>
