@@ -24,11 +24,22 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: ghostwhite;
+    background: linear-gradient(#FD8D58, #DC611E);
     padding: 20px;
     transition: all 0.3s ease;
 }
 
+body.angry {
+    background: linear-gradient(#FD8D58, #DC611E);
+}
+
+body.confuse {
+    background: linear-gradient(#FEA954, #DA7315);
+}
+
+body.like {
+    background: linear-gradient(#FED151, #DE981F);
+}
 
 .wrapper {
     background: #f6f6f6;
@@ -258,7 +269,7 @@ div.checkbox_select
 	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-top: 10px solid #60547C;
+	border-top: 10px solid darkred;
   content: "";
   position: absolute;
   right: 10px;
