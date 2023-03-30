@@ -105,7 +105,7 @@
                 <td th:case="'10'" style="background:red; color:white; text-align:center">10</td>
             </div>
             <div th:if="${recordRepo.findByPatient(currPatient).size == 0}">
-<td style=" text-align:center;width:15%;background:ghostwhite;">/</td>
+<td style=" text-align:center;width:15%;background:gray;">/</td>
             </div>
 
             <td style = "width:23%;"> <a th:href="@{'/showRecords?id=' + ${currPatient.id}}">Pregled</a></td>
