@@ -121,7 +121,7 @@
         <span th:case="'5'"><img src="emoji5.png" width="48px"></span>
       </td>
 
-      <div style = "width:15%;"  th:switch="${(record.painLevel}">
+      <div th:switch="${record.painLevel}" style = "width:15%;" >
         <td th:case="'0'" style="background:gray;color:white; text-align:center">0</td>
         <td th:case="'1'" style="background:green;color:white; text-align:center">1</td>
         <td th:case="'2'" style="background:green;color:white; text-align:center">2</td>
