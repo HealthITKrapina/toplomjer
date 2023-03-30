@@ -12,5 +12,5 @@ public interface RecordRepository extends CrudRepository<Record, Long> {
 
     List<Record> findByPatient(User patient);
 
-    List<Record> findByPatientOrderByHappinesslevelDESC(User patient);
+    List<Record> findByPatientOrderByHappinesslevelDesc(User patient);
 }

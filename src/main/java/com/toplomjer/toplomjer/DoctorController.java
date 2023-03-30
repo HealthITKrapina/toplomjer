@@ -64,7 +64,7 @@ public class DoctorController {
     @GetMapping("/showRecords")
     public String showPatientRecords(Model model, Long id) {
         User currSelectedPatient = userRepository.findById(id).get();
-        List<Record> recordList = recordRepository.findByPatientOrderByHappinesslevelDESC(currSelectedPatient);
+        List<Record> recordList = recordRepository.findByPatientOrderByHappinesslevelDesc(currSelectedPatient);
         Collections.reverse(recordList);
         model.addAttribute("currUser", currUser);
         model.addAttribute("currPatient", currSelectedPatient);
