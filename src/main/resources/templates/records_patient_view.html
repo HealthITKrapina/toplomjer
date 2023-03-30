@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+  <link rel="stylesheet" href="style.css">
+
+  <script type="text/javascript" src=""></script>
+  <link rel="icon" type="image/png" href="logo.png">
+  <title>Toplomjer</title>
+</head>
+<body oncontextmenu="return false" class="snippet-body like">
+<div style="display:flex;justify-content:space-between;align-items:center">
+  <button onclick="javascript:history.back()" class="wrapper" style="width:25%; max-width: 82px; padding: 8px 8px 8px 8px;">
+    <img src="backarrow_logo.png">
+  </button>
+
+  <button th:onclick="window.location.href = '/form-01?id=[[${currUser.id}]]&password=[[${currUser.password}]]'"  class="wrapper" style="width:25%; max-width: 82px;padding: 8px 8px 8px 8px;">
+    <img src="home_logo.png">
+  </button>
+
+</div>
+<div class="flex1">
+
+</div>
+<div class="flex2">
+
+  <div class="wrapper" style="font-weight:500; text-align:center;align-self: flex-start;">
+
+    <div style="overflow-x:auto">
+      <table class="">
+        <thead>
+        <tr>
+          <th>Datum</th>
+          <th>Osjećaj</th>
+          <th>Bol(0-10)</th>
+          <th>Opis stanja</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="record : ${recordList}">
+          <td th:text="${#dates.format(record.date, 'dd.MM.yy HH:mm')}"></td>
+          <td th:switch="${record.happinessLevel}">
+            <span th:case="'1'"><img src="emoji1.png" width="48px"></span>
+            <span th:case="'2'"><img src="emoji2.png" width="48px"></span>
+            <span th:case="'3'"><img src="emoji3.png" width="48px"></span>
+            <span th:case="'4'"><img src="emoji4.png" width="48px"></span>
+            <span th:case="'5'"><img src="emoji5.png" width="48px"></span>
+          </td>
+          <td th:text="${record.painLevel}"></td>
+          <td >
+            <a th:href="@{'/text?recordId=' + ${record.id}}"><p >Pregled</p></a>
+          </td>
+        </tr>
+
+        </tbody>
+
+      </table>
+    </div>
+
+
+  </div>
+</div>
+</body>
+</html>

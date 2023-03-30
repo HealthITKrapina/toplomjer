@@ -24,22 +24,11 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: linear-gradient(#FD8D58, #DC611E);
+    background: ghostwhite;
     padding: 20px;
     transition: all 0.3s ease;
 }
 
-body.angry {
-    background: linear-gradient(#FD8D58, #DC611E);
-}
-
-body.confuse {
-    background: linear-gradient(#FEA954, #DA7315);
-}
-
-body.like {
-    background: linear-gradient(#FED151, #DE981F);
-}
 
 .wrapper {
     background: #f6f6f6;
@@ -269,7 +258,7 @@ div.checkbox_select
 	height: 0;
 	border-left: 10px solid transparent;
 	border-right: 10px solid transparent;
-	border-top: 10px solid darkred;
+	border-top: 10px solid #60547C;
   content: "";
   position: absolute;
   right: 10px;
@@ -392,6 +381,8 @@ div.checkbox_select .select_input
 
 
 .help-tip{
+border: 1px solid black;
+    border-radius: 0.375rem;
 	text-align: center;
 	border: 2px solid #444;
 	border-radius: 50%;
@@ -406,8 +397,8 @@ div.checkbox_select .select_input
 
 .help-tip:before{
     content:'?';
-    font-family: sans-serif;
     font-weight: normal;
+    font-family:sans-serif;
     color:#444;
 }
 
@@ -421,7 +412,6 @@ div.checkbox_select .select_input
 /* The tooltip */
 .help-tip p {
 	display: none;
-	font-family: sans-serif;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 	text-align: center;
@@ -433,7 +423,7 @@ div.checkbox_select .select_input
 	left: 50%;
 	transform: translate(-40%, 5%);
 	border-radius: 3px;
-/* 	border: 1px solid #E0E0E0; */
+ 	border: 1px solid black;
 	box-shadow: 0 0px 20px 0 rgba(0,0,0,0.1);
 	color: #37393D;
 	font-size: 12px;

@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -111,21 +112,19 @@ public class PatientController {
     }
     @GetMapping("/form-end")
     public String formEnd(Model model, String text, @RequestParam Map<String, String> allParams, HttpSession session) {
-        String newText = text  + "\n";
-        Record record = (Record) session.getAttribute("record");
-
-
-        newText += "\n\nSelektirano:\n";
+        String newText = "";
         if(allParams.get("\uD83D\uDC6A Podrška obitelji") != null)
-            newText += "[Podrška obitelji]\n";
+            newText += "[\uD83D\uDC6APodrška obitelji]\n";
         if(allParams.get("\uD83D\uDC69\u200D⚕️Podrška medicinskog tima") != null)
-            newText += "[Podrška medicinskog tima]\n";
+            newText += "[\uD83D\uDC69\u200D⚕Podrška medicinskog tima]\n";
         if(allParams.get("\uD83D\uDD6F️ Duhovna podrška") != null)
-            newText += "[Duhovna podrška]\n";
+            newText += "[\uD83D\uDD6FDuhovna podrška]\n";
         if(allParams.get("\uD83D\uDC69\uD83C\uDFFB\u200D⚕ Psihološka podrška") != null)
-            newText += "[Psihološka podrška]\n";
+            newText += "[\uD83D\uDC69\uD83C\uDFFB\u200D⚕Psihološka podrška]\n";
         if(allParams.get("\uD83D\uDC8A Lijek") != null)
-            newText += "[Lijek]\n";
+            newText += "\uD83D\uDC8A[Lijek]\n";
+        newText += text;
+        Record record = (Record) session.getAttribute("record");
         record.setText(newText);
 
         //Trenutno rjesenje set datea dok je app jos hostan na heroku serveru
@@ -144,6 +143,22 @@ public class PatientController {
         return "legenda.html";
     }
 
+    @GetMapping("records")
+    public String showRecords(Model model, HttpSession session, Long id) {
+        currUser = userRepository.findById(id).get();
+        List<Record> recordList = recordRepository.findByPatient(currUser);
+        Collections.reverse(recordList);
+        model.addAttribute("currUser", currUser);
+        model.addAttribute("recordList", recordList);
+        return "records_patient_view.html";
+    }
 
+    @GetMapping("text")
+    public String showText(Model model, HttpSession session, Long recordId) {
+        Record record = recordRepository.findById(recordId).get();
+        model.addAttribute("currUser", currUser);
+        model.addAttribute("record", record);
+        return "record_text.html";
+    }
 
 }

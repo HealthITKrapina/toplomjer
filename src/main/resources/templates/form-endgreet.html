@@ -29,6 +29,8 @@
   <img src="panda.png"  style="width:50%">
   <p th:text = "'Hvala ti što si ovo podijelio/la sa mnom ' + ${currUser.firstName} + '. Vidimo se idući put!'" style="margin-top: 32px; ">
   </p>
+  <button th:onclick="window.location.href = '/form-01?id=[[${currUser.id}]]&password=[[${currUser.password}]]'" type="button"  class="button-next" style="color:white;background:#60547C; width:100%">NATRAG NA POČETNU</button>
+
 
 </div>
 </div>

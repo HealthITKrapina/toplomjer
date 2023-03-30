@@ -33,7 +33,7 @@ public class LoginController {
                 return "redirect:/form-01?id=" + currUser.getId() + "&password=" + password;
             }
         } else {
-            model.addAttribute ("warningMessage", "Pogresni unos korisničkog imena i/ili lozinke!");
+            model.addAttribute ("warningMessage", "Pogrešan unos korisničkog imena i/ili lozinke!");
             return "login.html";
         }
 
