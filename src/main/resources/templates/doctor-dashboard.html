@@ -44,7 +44,48 @@
         }
 
 
-        page-container {
+         .wrapper {
+        max-width: 960px;
+        margin: 2em auto;
+      }
+
+      .col1,
+      .col2 {
+        background-color: #fff;
+      }
+
+      @media screen and (min-width: 600px) {
+        .wrapper {
+          display: flex;
+        }
+
+        .col1 {
+          flex: 1;
+          margin-right: 5%;
+        }
+
+        .col2 {
+          flex: 2;
+        }
+
+
+
+        .navbar {
+          bs-navbar-brand-color: #c981d282;
+        }
+
+
+
+        img,
+        picture,
+        video {
+          max-width: 100%;
+        }
+
+
+
+
+         page-container {
          position: relative;
           min-height: 100vh;
          }
@@ -79,23 +120,21 @@
     <table id="patientTable" class="table table-hover">
         <thead class="table-secondary">
         <tr>
-            <th>rb.</th>
             <th>Ime</th>
             <th>Prezime</th>
             <th>Zapisi</th>
-            <th>Uredi</th>
-
+            <th>Bol</th>
+            <th>Datum</th>
 
         </tr>
         </thead>
         <tbody>
         <tr th:each="currPatient : ${patientList}">
-            <td th:text="${currPatient.id}"></td>
             <td th:text="${currPatient.firstName}"></td>
             <td th:text="${currPatient.lastName}"></td>
-            <td><a th:href="@{'/showRecords?id=' + ${currPatient.id}}">Pregled</a></td>s
-            <td><a th:href="@{'/addNewPatient?id=' + ${currPatient.id}}">Uredi</a></td>
-
+            <td><a th:href="@{'/showRecords?id=' + ${currPatient.id}}">Pregled</a></td>
+            <td th:text="${record.painLevel}"></td>
+            <td th:text="${#dates.format(record.date, 'HH:mm dd.MM.yyyy.')}"></td>
         </tr>
         </tbody>
     </table>
@@ -106,7 +145,7 @@
 
 
 
-<footer class="text-center text-grey fixed-bottom" >@Toplomjer 2023 Health IT. All rights reserved.</footer>
+<footer class="text-center text-grey " >@Toplomjer 2023 Health IT. All rights reserved.</footer>
 
 
 </body>
