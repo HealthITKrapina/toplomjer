@@ -69,6 +69,7 @@ public class DoctorController {
         model.addAttribute("currUser", currUser);
         model.addAttribute("currPatient", currSelectedPatient);
         model.addAttribute("recordList", recordList);
+        model.addAttribute("recordRepo", recordRepository);
         return "patient_records.html";
     }
 
