@@ -111,11 +111,29 @@
 
     <tbody>
     <tr th:each="record : ${recordList}">
-      <td th:text="${#dates.format(record.date, 'dd-MM-yy HH:mm')}"></td>
+      <td th:text="${#dates.format(record.date, 'dd-MM-yy   HH:mm')}"></td>
 
-      <td th:text="${record.happinessLevel}"></td>
+      <td th:switch="${record.happinessLevel}">
+        <span th:case="'1'"><img src="emoji1.png" width="48px"></span>
+        <span th:case="'2'"><img src="emoji2.png" width="48px"></span>
+        <span th:case="'3'"><img src="emoji3.png" width="48px"></span>
+        <span th:case="'4'"><img src="emoji4.png" width="48px"></span>
+        <span th:case="'5'"><img src="emoji5.png" width="48px"></span>
+      </td>
 
-      <td th:text="${record.painLevel}"></td>
+      <div style = "width:15%;" th:if="${recordRepo.findByPatient(currPatient).size != 0}" th:switch="${(recordRepo.findByPatient(currPatient).get(recordRepo.findByPatient(currPatient).size-1)).painLevel}">
+        <td th:case="'0'" style="background:gray;color:white; text-align:center">0</td>
+        <td th:case="'1'" style="background:green;color:white; text-align:center">1</td>
+        <td th:case="'2'" style="background:green;color:white; text-align:center">2</td>
+        <td th:case="'3'" style="background:green;color:white; text-align:center">3</td>
+        <td th:case="'4'" style="background:orange;color:white; text-align:center">4</td>
+        <td th:case="'5'" style="background:orange;color:white; text-align:center">5</td>
+        <td th:case="'6'" style="background:orange;color:white; text-align:center">6</td>
+        <td th:case="'7'" style="background:red;color:white; text-align:center">7</td>
+        <td th:case="'8'" style="background:red;color:white; text-align:center">8<</td>
+        <td th:case="'9'" style="background:red;color:white; text-align:center">9<</td>
+        <td th:case="'10'" style="background:red; color:white; text-align:center">10</td>
+      </div>
 
       <td th:text="${record.text}"></td>
     </tr>
