@@ -98,7 +98,7 @@ body {
 .slider .progress-bar {
     height: 100%;
     width: 0%;
-    background: #f6f6f6;
+    background: #d9d9d9;
     border-radius: 50px;
     position: relative;
 }
