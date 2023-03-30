@@ -98,7 +98,7 @@ body {
 .slider .progress-bar {
     height: 100%;
     width: 0%;
-    background: linear-gradient(45deg, #FD8D58, #DC611E);
+    background: linear-gradient(45deg, #FD8D58, #60547C);
     border-radius: 50px;
     position: relative;
 }
@@ -108,7 +108,7 @@ body {
 .slider .thumb {
     height: 30px;
     width: 30px;
-    background: #DC611E;
+    background: #60547C;
     border-radius: 50%;
     position: absolute;
     top: 50%;
