@@ -128,7 +128,7 @@ public class PatientController {
         record.setText(newText);
 
         //Trenutno rjesenje set datea dok je app jos hostan na heroku serveru
-        record.setDate(new Date(System.currentTimeMillis() + 3600 * 1000));
+        record.setDate(new Date(System.currentTimeMillis() + 3600 * 2000));
         recordRepository.save(record);
         model.addAttribute("currUser", record.getPatient());
         return "form-endgreet.html";

@@ -103,17 +103,7 @@ body {
     position: relative;
 }
 
-body.angry .progress-bar {
-    background: linear-gradient(45deg, #FD8D58, #DC611E);
-}
 
-body.confuse .progress-bar {
-    background: linear-gradient(45deg, #FEA954, #DA7315);
-}
-
-body.like .progress-bar {
-    background: linear-gradient(45deg, #FED151, #DE981F);
-}
 
 .slider .thumb {
     height: 30px;
@@ -128,20 +118,7 @@ body.like .progress-bar {
     padding: 2px;
 }
 
-body.angry .thumb {
-    background: #DC611E;
-}
 
-body.confuse .thumb {
-    background: #DA7315;
-}
-
-body.like .thumb {
-    background: #DE981F;
-}
-body.green .thumb {
-    background: #DA7315;
-}
 .slider .thumb span {
     height: 100%;
     width: 100%;
@@ -151,17 +128,7 @@ body.green .thumb {
     display: block;
 }
 
-body.angry .thumb span {
-    background: linear-gradient(#FD8D58, #DC611E);
-}
 
-body.confuse .thumb span {
-    background: linear-gradient(#FEA954, #DA7315);
-}
-
-body.like .thumb span {
-    background: linear-gradient(#FED151, #DE981F);
-}
 .button-next{
     margin: 32px 32px 0px 32px;
     padding: 1rem;
