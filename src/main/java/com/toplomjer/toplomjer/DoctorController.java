@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -64,6 +65,7 @@ public class DoctorController {
     public String showPatientRecords(Model model, Long id) {
         User currSelectedPatient = userRepository.findById(id).get();
         List<Record> recordList = recordRepository.findByPatient(currSelectedPatient);
+        Collections.reverse(recordList);
         model.addAttribute("currUser", currUser);
         model.addAttribute("currPatient", currSelectedPatient);
         model.addAttribute("recordList", recordList);

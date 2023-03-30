@@ -38,10 +38,7 @@
 
         }
 
-        tbody tr:hover {
-            cursor: pointer;
-            background-color: #ccc;
-        }
+
 
 
         page-container {
@@ -81,9 +78,9 @@
         <tr>
             <th>Ime</th>
             <th>Prezime</th>
-            <th>Zapisi</th>
             <th>Datum zadnjeg zapisa</th>
             <th>Bol</th>
+            <th>Zapisi</th>
 
 
 
@@ -91,11 +88,10 @@
         </thead>
         <tbody>
         <tr th:each="currPatient : ${patientList}">
-            <td th:text="${currPatient.firstName}"></td>
-            <td th:text="${currPatient.lastName}"></td>
-            <td><a th:href="@{'/showRecords?id=' + ${currPatient.id}}">Pregled</a></td>
-            <td><a th:if="${recordRepo.findByPatient(currPatient).size != 0} " th:text="${#dates.format(recordRepo.findByPatient(currPatient).get(recordRepo.findByPatient(currPatient).size-1).date, 'HH:mm dd.MM.yy')}" style="font-weight:bold">Datum zadnjeg zapisa</a></td>
-            <div th:if="${recordRepo.findByPatient(currPatient).size != 0}" th:switch="${(recordRepo.findByPatient(currPatient).get(recordRepo.findByPatient(currPatient).size-1)).painLevel}">
+            <td style = "width:23%;" th:text="${currPatient.firstName}"></td>
+            <td style = "width:23%;" th:text="${currPatient.lastName}"></td>
+            <td style = "width:23%;"><a th:if="${recordRepo.findByPatient(currPatient).size != 0} " th:text="${#dates.format(recordRepo.findByPatient(currPatient).get(recordRepo.findByPatient(currPatient).size-1).date, 'HH:mm dd.MM.yy')}" style="font-weight:bold">Datum zadnjeg zapisa</a></td>
+            <div style = "width:15%;" th:if="${recordRepo.findByPatient(currPatient).size != 0}" th:switch="${(recordRepo.findByPatient(currPatient).get(recordRepo.findByPatient(currPatient).size-1)).painLevel}">
                 <td th:case="'0'" style="background:gray;color:white; text-align:center">0</td>
                 <td th:case="'1'" style="background:green;color:white; text-align:center">1</td>
                 <td th:case="'2'" style="background:green;color:white; text-align:center">2</td>
@@ -108,7 +104,11 @@
                 <td th:case="'9'" style="background:red;color:white; text-align:center">9<</td>
                 <td th:case="'10'" style="background:red; color:white; text-align:center">10</td>
             </div>
+            <div th:if="${recordRepo.findByPatient(currPatient).size == 0}">
+<td style=" text-align:center;width:15%">/</td>
+            </div>
 
+            <td style = "width:23%;"> <a th:href="@{'/showRecords?id=' + ${currPatient.id}}">Pregled</a></td>
         </tr>
         </tbody>
     </table>
